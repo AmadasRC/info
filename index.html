@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AMADAS</title>
+<meta name="description" content="AMADAS: un espacio para que mujeres de cualquier etapa de la vida se encuentren con Cristo y crezcan juntas en la fe. Regnum Christi Guatemala.">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap">
+<style>
+/* Concepto: página de una sola columna, tranquila y acogedora. Colores y letras tomados de la presentación del apostolado. Logo sobre una placa clara para que se lea en modo claro y oscuro. */
+:root {
+  --bg: #E6E0D0;
+  --surface: #F3EFE5;
+  --ink: #1D2B53;
+  --muted: #465068;
+  --slate: #5B6684;
+  --on-slate: #FFFFFF;
+  --btn: #1D2B53;
+  --on-btn: #F3EFE5;
+  --line: rgba(29, 43, 83, 0.22);
+  --plate: #FEFDFA;
+  --font-display: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141A2E;
+    --surface: #1B2340;
+    --ink: #EDE8DA;
+    --muted: #B8BCCB;
+    --slate: #2B3560;
+    --on-slate: #F3EFE5;
+    --btn: #EDE8DA;
+    --on-btn: #141A2E;
+    --line: rgba(237, 232, 218, 0.22);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141A2E;
+  --surface: #1B2340;
+  --ink: #EDE8DA;
+  --muted: #B8BCCB;
+  --slate: #2B3560;
+  --on-slate: #F3EFE5;
+  --btn: #EDE8DA;
+  --on-btn: #141A2E;
+  --line: rgba(237, 232, 218, 0.22);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--surface);
+}
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  text-wrap: balance;
+  margin: 0;
+}
+p { margin: 0; }
+a:focus-visible, summary:focus-visible, button:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Cabecera */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 11;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 10px;
+}
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  background: var(--btn);
+  color: var(--on-btn);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 4px;
+  border: 2px solid var(--btn);
+  cursor: pointer;
+}
+.btn.small { padding: 9px 16px; font-size: 0.9rem; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+
+/* Portada */
+.hero { padding-block: clamp(32px, 6vw, 72px); }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+}
+.hero-text { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero h1 { font-size: clamp(1.7rem, 4.6vw, 2.7rem); font-weight: 700; }
+.hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 46ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.plate {
+  background: var(--plate);
+  border-radius: 6px;
+  padding: clamp(16px, 4vw, 36px);
+  display: flex;
+  justify-content: center;
+}
+.plate img { display: block; width: 100%; max-width: 440px; height: auto; }
+
+/* Fotos */
+.photo { margin: 0 0 28px; }
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 6px;
+}
+.photo.wide img { aspect-ratio: 2 / 1; object-position: center; }
+@media (max-width: 760px) {
+  .photo.wide img { aspect-ratio: 3 / 2; }
+}
+
+/* Secciones */
+section { padding-block: clamp(36px, 6vw, 72px); scroll-margin-top: 64px; }
+section.alt { background: var(--surface); }
+.head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; max-width: 62ch; }
+.head h2 { font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 800; }
+.head p { color: var(--muted); }
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--slate);
+  color: var(--on-slate);
+  padding: 26px 24px;
+  border-radius: 6px;
+  min-width: 0;
+}
+.card h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 10px; }
+
+.growth {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 28px 24px;
+}
+.growth div { border-top: 2px solid var(--ink); padding-top: 14px; min-width: 0; }
+.growth h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.growth p { color: var(--muted); }
+
+.meet {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(24px, 5vw, 56px);
+  align-items: start;
+}
+.when { background: var(--slate); color: var(--on-slate); border-radius: 6px; padding: 28px 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.when .big { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.2; }
+.when .pending { font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.35); padding-top: 12px; }
+.cycle { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; min-width: 0; }
+.cycle li { padding: 18px 0; border-top: 1px solid var(--line); }
+.cycle li:last-child { border-bottom: 1px solid var(--line); }
+.cycle h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.cycle p { color: var(--muted); }
+.week {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 8px; }
+.steps div { background: var(--bg); padding: 20px; border-radius: 6px; border: 1px solid var(--line); min-width: 0; }
+.steps h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+.steps p { color: var(--muted); font-size: 0.97rem; }
+
+/* Preguntas */
+.faq { max-width: 760px; }
+details { border-top: 1px solid var(--line); }
+details:last-child { border-bottom: 1px solid var(--line); }
+summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 36px 18px 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  position: relative;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+details[open] summary::after { content: "\2212"; }
+details p { padding: 0 0 20px; color: var(--muted); max-width: 62ch; }
+
+/* Registro */
+.signup {
+  background: var(--slate);
+  color: var(--on-slate);
+  border-radius: 6px;
+  padding: clamp(24px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.signup h2 { font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 800; }
+.signup p { max-width: 56ch; }
+.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.mail {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.14);
+  padding: 10px 14px;
+  border-radius: 4px;
+  user-select: all;
+  overflow-wrap: anywhere;
+}
+.signup .btn { background: var(--on-slate); color: #1D2B53; border-color: var(--on-slate); }
+.signup .btn.ghost { background: transparent; color: var(--on-slate); border-color: var(--on-slate); }
+.signup .small-note { font-size: 0.9rem; opacity: 0.9; }
+.formlink[hidden] { display: none; }
+
+/* Pie */
+footer { padding-block: 36px 48px; }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; }
+.rc { background: var(--plate); border-radius: 6px; padding: 12px 18px; }
+.rc img { display: block; height: 84px; width: auto; }
+footer p { color: var(--muted); font-size: 0.95rem; max-width: 52ch; }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero .plate { order: -1; }
+  .meet { grid-template-columns: 1fr; }
+  .brand { font-size: 1.1rem; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">AMADAS</a>
+    <a class="btn small" href="https://docs.google.com/forms/d/e/1FAIpQLSc7KJcS3VP-092YzqMqlCsRmifcmIfYx87hz9ralYjzibjHLw/viewform" target="_blank" rel="noopener">Quiero participar</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="eyebrow">Apostolado femenino · Regnum Christi Guatemala</span>
+        <h1>Un espacio para encontrarnos con Cristo y crecer juntas en la fe.</h1>
+        <p class="lead">Un encuentro cada miércoles, con oración, formación y comunidad. Todas las mujeres son bienvenidas.</p>
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc7KJcS3VP-092YzqMqlCsRmifcmIfYx87hz9ralYjzibjHLw/viewform" target="_blank" rel="noopener">Quiero participar</a>
+          <a class="btn ghost" href="#amadas">Conocer más</a>
+        </div>
+      </div>
+      <div class="plate">
+        <img src="img/logo-completo.png" alt="Logo de AMADAS, un espacio para encontrarnos con Cristo y crecer juntas en la fe, Regnum Christi Guatemala" width="900" height="992">
+      </div>
+    </div>
+  </div>
+
+  <section id="amadas" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>Todas somos amadas</h2>
+        <p>Distintas realidades, una misma necesidad de encontrarnos con Cristo. Hay mujeres solteras, madres solteras, divorciadas, con novio, próximas a casarse, o casadas cuyos esposos aún no comparten su camino de fe. Nuestra dignidad no depende del estado civil ni de la etapa de la vida: Dios te ama y te conoce por tu nombre.</p>
+      </div>
+      <figure class="photo">
+        <img src="img/comunidad.jpg" alt="Cinco mujeres abrazadas, vistas de espaldas, miran juntas hacia una iglesia con una cruz al atardecer" width="1400" height="933" loading="lazy">
+      </figure>
+      <div class="pillars">
+        <div class="card">
+          <h3>Acogida</h3>
+          <p>Un espacio abierto donde cada mujer se siente acogida, escuchada y acompañada.</p>
+        </div>
+        <div class="card">
+          <h3>Encuentro</h3>
+          <p>Una oportunidad constante de acercarnos a Cristo, orar y compartir la fe.</p>
+        </div>
+        <div class="card">
+          <h3>Comunidad</h3>
+          <p>Mujeres que se acompañan y caminan juntas hacia Dios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="camino">
+    <div class="wrap">
+      <div class="head">
+        <h2>Un camino de crecimiento</h2>
+        <p>Queremos crear una comunidad de mujeres que, por medio de la oración, el encuentro personal con Cristo y la formación católica, fortalezcan su fe y la lleven a su vida cotidiana. Una mujer cercana a Dios puede ser luz para sus hijos, su pareja, su familia y su entorno.</p>
+      </div>
+      <div class="growth">
+        <div>
+          <h3>Oración</h3>
+          <p>Aprender a dialogar con Dios y fortalecer nuestra vida interior.</p>
+        </div>
+        <div>
+          <h3>Formación</h3>
+          <p>Conocer nuestra Iglesia y comprender lo que creemos.</p>
+        </div>
+        <div>
+          <h3>Encuentro con Cristo</h3>
+          <p>Escuchar su Palabra, compartir y llevar la fe a la vida.</p>
+        </div>
+        <div>
+          <h3>Comunidad</h3>
+          <p>Construir vínculos de confianza, acogida y servicio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="encuentros" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>Nuestros encuentros</h2>
+        <p>Nos reunimos los miércoles, de 6:00 a 7:30 p.m. Cada mes sigue el mismo ciclo, semana por semana.</p>
+      </div>
+      <div class="meet">
+        <div class="when">
+          <span class="eyebrow" style="color:inherit;opacity:.85">Cuándo y dónde</span>
+          <div class="big">Miércoles, de 6:00 a 7:30 p.m.</div>
+          <p>Sede de Regnum Christi: 17 calle 9-38, zona 10, Ciudad de Guatemala.</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=17+calle+9-38+zona+10+Ciudad+de+Guatemala" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Ver en el mapa</a></p>
+          <p class="pending">Para formar parte, es necesario llenar el formulario de registro.</p>
+        </div>
+        <ol class="cycle">
+          <li>
+            <span class="week">Primer miércoles</span>
+            <h3>Encuentro con Cristo</h3>
+            <p>Oración, Palabra de Dios, reflexión y vida compartida.</p>
+          </li>
+          <li>
+            <span class="week">Segundo miércoles</span>
+            <h3>Retiro espiritual</h3>
+            <p>Santa Misa, homilía, meditación y encuentro con Jesús Sacramentado.</p>
+          </li>
+          <li>
+            <span class="week">Tercer miércoles</span>
+            <h3>Formación católica</h3>
+            <p>Conocer y profundizar en la fe que profesamos.</p>
+          </li>
+          <li>
+            <span class="week">Cuarto miércoles</span>
+            <h3>Encuentro con Cristo</h3>
+            <p>Oración, Palabra de Dios, reflexión y vida compartida.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="wrap">
+      <div class="head">
+        <h2>No podemos amar lo que no conocemos</h2>
+        <p>Conocer nuestra fe para amarla, vivirla y transmitirla. Queremos un programa de formación progresivo, no únicamente charlas aisladas: la Biblia, la doctrina, los sacramentos y la vida espiritual, de la mano de sacerdotes, consagradas y laicos preparados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regnum-christi" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>Una puerta de entrada a una vida de fe más profunda</h2>
+        <p>Acompañamos a las mujeres para que descubran nuevas formas de vivir su fe y de servir dentro de la Iglesia, de la mano de Regnum Christi.</p>
+      </div>
+      <div class="steps">
+        <div>
+          <h3>Conocer</h3>
+          <p>La misión y la espiritualidad de Regnum Christi.</p>
+        </div>
+        <div>
+          <h3>Participar</h3>
+          <p>Sus apostolados y actividades.</p>
+        </div>
+        <div>
+          <h3>Servir</h3>
+          <p>Descubrir tus talentos para el servicio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="wrap">
+      <div class="head">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Necesito ser de Regnum Christi?</summary>
+          <p>No. Toda mujer es bienvenida, sea o no parte de Regnum Christi.</p>
+        </details>
+        <details>
+          <summary>¿Puedo ir sola?</summary>
+          <p>Sí. Muchas mujeres llegarán solas, y la idea es que aquí encuentres compañía.</p>
+        </details>
+        <details>
+          <summary>¿Importa mi estado civil o la etapa de vida en que estoy?</summary>
+          <p>No. Estás invitada tal como eres.</p>
+        </details>
+        <details>
+          <summary>¿Y si tengo dudas o hace tiempo que no me acerco a la Iglesia?</summary>
+          <p>Puedes venir con tus preguntas. El camino se hace paso a paso.</p>
+        </details>
+        <details>
+          <summary>¿Cuándo y dónde son los encuentros?</summary>
+          <p>Los miércoles de 6:00 a 7:30 p.m., en la sede de Regnum Christi: 17 calle 9-38, zona 10. Cada mes: el primer miércoles, encuentro con Cristo; el segundo, retiro espiritual; el tercero, formación católica; y el cuarto, encuentro con Cristo. Para formar parte, llena el formulario y te avisaremos del siguiente encuentro.</p>
+        </details>
+        <details>
+          <summary>¿Tiene costo?</summary>
+          <p>Te compartiremos los detalles antes del siguiente encuentro.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="registro" class="alt">
+    <div class="wrap">
+      <figure class="photo wide">
+        <img src="img/encuentro.jpg" alt="Una mujer de espaldas mira un paisaje de montañas y lago al atardecer. Texto en la imagen: Un espacio para encontrarnos con Cristo y crecer juntas en la fe. Regnum Christi Guatemala" width="1400" height="933" loading="lazy">
+      </figure>
+      <div class="signup">
+        <h2>Quiero participar</h2>
+        <p>Déjanos tus datos y te avisaremos del siguiente encuentro. Si quieres formar parte, es necesario que llenes el formulario.</p>
+        <p class="formlink" id="formulario"><a class="btn" id="formulario-enlace" href="https://docs.google.com/forms/d/e/1FAIpQLSc7KJcS3VP-092YzqMqlCsRmifcmIfYx87hz9ralYjzibjHLw/viewform" target="_blank" rel="noopener">Llenar el formulario de registro</a></p>
+        <p>¿Prefieres escribirnos? Por WhatsApp o por correo:</p>
+        <div class="mailrow">
+          <span class="mail">WhatsApp: 4044-0951</span>
+          <a class="btn small" href="https://wa.me/50240440951" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+        <div class="mailrow">
+          <span class="mail" id="correo">contacto@amadasrc.com</span>
+          <button class="btn ghost small" type="button" id="copiar">Copiar correo</button>
+          <a class="btn small" href="mailto:contacto@amadasrc.com?subject=Quiero%20participar%20en%20AMADAS">Escribirnos</a>
+        </div>
+        <p class="small-note" id="copiado" aria-live="polite"></p>
+        
+        <p class="small-note">Usaremos tus datos solo para invitarte a los encuentros de AMADAS.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rc">
+      <img src="img/regnum-christi.png" alt="Regnum Christi Guatemala" width="542" height="296">
+    </div>
+    <p>AMADAS. Un espacio para encontrarnos con Cristo y crecer juntas en la fe.<br>WhatsApp 4044-0951 · contacto@amadasrc.com</p>
+  </div>
+</footer>
+
+<script>
+  // Cuando exista el formulario de registro, pegar su enlace aquí.
+  var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc7KJcS3VP-092YzqMqlCsRmifcmIfYx87hz9ralYjzibjHLw/viewform";
+
+  (function () {
+    if (FORM_URL) {
+      var box = document.getElementById("formulario");
+      var link = document.getElementById("formulario-enlace");
+      link.href = FORM_URL;
+      box.hidden = false;
+    }
+    var btn = document.getElementById("copiar");
+    var out = document.getElementById("copiado");
+    var mail = document.getElementById("correo");
+    btn.addEventListener("click", function () {
+      var text = mail.textContent.trim();
+      function fallback() {
+        try {
+          var r = document.createRange();
+          r.selectNodeContents(mail);
+          var s = window.getSelection();
+          s.removeAllRanges();
+          s.addRange(r);
+        } catch (e) {}
+        out.textContent = "Selecciona el correo y cópialo: " + text;
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          out.textContent = "Correo copiado.";
+        }, fallback);
+      } catch (e) { fallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
