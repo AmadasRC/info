@@ -148,6 +148,52 @@ figure { margin: 0; }
 .joinnote { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
 .joinnote p { margin: 0; font-weight: 700; }
 
+
+/* Cómo funciona un mes */
+.how { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+.wk { border-radius: 3px; padding: 22px 18px 24px; color: var(--warm); text-align: center; display: flex; flex-direction: column; align-items: center; }
+.wk.enc { background: var(--night); } .wk.for { background: var(--sage); } .wk.ret { background: var(--plum); }
+.wk .n { font-weight: 700; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.wk.for .n { color: var(--warm); }
+.wk .big { font-family: var(--serif); font-size: 3.6rem; line-height: 1; margin: 6px 0 10px; }
+.wk .line { width: 40px; height: 2px; background: var(--gold); margin: 0 auto 14px; }
+.wk.for .line { background: var(--warm); }
+.wk h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--warm); }
+.wk .day { font-weight: 700; margin: 0 0 2px; }
+.wk .hr { margin: 0; opacity: .92; font-size: .95rem; }
+.howfoot { text-align: center; margin-top: 22px; color: var(--night); font-weight: 700; }
+@media (max-width: 860px) { .how { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .how { grid-template-columns: 1fr; gap: 12px; } .wk { flex-direction: row; text-align: left; gap: 18px; padding: 16px 18px; align-items: center; } .wk .side { text-align: center; min-width: 76px; } .wk .line { display: none; } .wk .big { font-size: 2.8rem; margin: 2px 0 0; } }
+.wk .side { display: block; }
+.wk .txt { display: block; }
+
+/* Calendario 2027 */
+.tent { font-size: .95rem; color: #694451; font-family: Lato, sans-serif; font-weight: 700; }
+.calwrap { margin-top: 44px; }
+.calwrap h3 { font-size: 1.5rem; margin-bottom: 8px; }
+.calnote { color: var(--muted); margin: 0 0 16px; max-width: 62ch; }
+.calnote.small { font-size: 0.9rem; margin: 14px 0 0; }
+.tablewrap { overflow-x: auto; }
+table.cal { width: 100%; border-collapse: separate; border-spacing: 0 6px; min-width: 520px; }
+table.cal th, table.cal td { padding: 11px 12px; text-align: center; }
+table.cal thead th { color: var(--warm); font-weight: 700; font-size: 0.95rem; line-height: 1.25; border-radius: 3px; }
+table.cal thead th span { display: block; font-weight: 400; font-size: 0.8rem; letter-spacing: .08em; text-transform: uppercase; opacity: .9; margin-top: 2px; }
+table.cal thead th:first-child { background: none; }
+.h-enc { background: var(--night); } .h-for { background: var(--sage); } .h-ret { background: var(--plum); }
+table.cal tbody th { text-align: left; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; padding-left: 4px; }
+table.cal tbody td { background: #fff; border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand); font-weight: 700; font-size: 1.05rem; }
+table.cal tbody td:nth-child(2) { border-left: 1px solid var(--sand); border-radius: 3px 0 0 3px; }
+table.cal tbody td:last-child { border-right: 1px solid var(--sand); border-radius: 0 3px 3px 0; }
+table.cal .none { font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 560px) {
+  table.cal { min-width: 0; }
+  table.cal th, table.cal td { padding: 9px 4px; }
+  table.cal thead th { font-size: 0.8rem; }
+  table.cal thead th span { font-size: 0.68rem; letter-spacing: .04em; }
+  table.cal tbody th { font-size: 0.92rem; }
+  table.cal tbody td { font-size: 0.98rem; }
+}
+
 /* Formación (verde salvia) */
 .statement { max-width: 62ch; }
 .statement h2 { color: var(--warm); }
@@ -283,13 +329,31 @@ footer .small { font-size: 0.9rem; }
     </div>
   </section>
 
+  <section class="sand" id="como-funciona">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Un mes en AMADAS</span>
+        <h2>¿Cómo funciona?</h2>
+        <hr class="rule">
+        <p>Todos los meses se repite el mismo ritmo, semana a semana.</p>
+      </div>
+      <div class="how">
+        <div class="wk enc"><div class="side"><span class="n">Semana</span><div class="big">1</div></div><div class="txt"><div class="line"></div><h3>Encuentro con Cristo</h3><p class="day">Miércoles</p><p class="hr">6:00 a 7:15 p. m.</p></div></div>
+        <div class="wk for"><div class="side"><span class="n">Semana</span><div class="big">2</div></div><div class="txt"><div class="line"></div><h3>Formación católica</h3><p class="day">Miércoles</p><p class="hr">6:00 a 7:15 p. m.</p></div></div>
+        <div class="wk ret"><div class="side"><span class="n">Semana</span><div class="big">3</div></div><div class="txt"><div class="line"></div><h3>Retiro mensual</h3><p class="day">Martes</p><p class="hr">6:00 p. m.</p></div></div>
+        <div class="wk enc"><div class="side"><span class="n">Semana</span><div class="big">4</div></div><div class="txt"><div class="line"></div><h3>Encuentro con Cristo</h3><p class="day">Miércoles</p><p class="hr">6:00 a 7:15 p. m.</p></div></div>
+      </div>
+      <p class="howfoot">Las fechas exactas de cada mes están en el calendario 2027 (tentativo).</p>
+    </div>
+  </section>
+
   <section id="encuentros">
     <div class="wrap">
       <div class="head">
         <span class="label">Cada mes</span>
         <h2>Nuestros encuentros</h2>
         <hr class="rule">
-        <p>Cada mes tiene su ritmo: dos encuentros con Cristo, un retiro y una formación. Todas las actividades comienzan a las 6:00 p. m.</p>
+        <p>Cada mes tiene su ritmo: dos encuentros con Cristo, una formación y un retiro. Los miércoles comienzan a las 6:00 p. m.</p>
       </div>
 
       <div class="startbar">
@@ -310,23 +374,10 @@ footer .small { font-size: 0.9rem; }
           </ul>
         </article>
 
-        <article class="cat ret">
-          <span class="tag">Retiros</span>
-          <h3>Retiro mensual</h3>
-          <p class="when">Segundo martes del mes</p>
-          <p class="desc">Un espacio de oración y reflexión para detenernos, escuchar a Dios y renovar nuestra fe.</p>
-          <p class="by">De Sección Femenina de Adultos RC</p>
-          <hr class="rule">
-          <ul class="info">
-            <li><svg aria-hidden="true"><use href="#i-clock"/></svg><div><b>Horario</b>6:00 p. m.</div></li>
-            <li><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>Lugar</b>Instituto Betania<br>3.ª calle 23-41, zona 15, Colonia Vista Hermosa I, Ciudad de Guatemala<br><a href="https://www.google.com/maps/search/?api=1&query=Instituto+Betania+3+calle+23-41+zona+15+Vista+Hermosa+I+Ciudad+de+Guatemala" target="_blank" rel="noopener">Ver en el mapa</a></div></li>
-          </ul>
-        </article>
-
         <article class="cat for">
           <span class="tag">Formación</span>
           <h3>Formación católica</h3>
-          <p class="when">Tercer miércoles del mes</p>
+          <p class="when">Segundo miércoles del mes</p>
           <p class="desc">Conocer nuestra fe para amarla, vivirla y transmitirla.</p>
           <hr class="rule">
           <ul class="info">
@@ -334,6 +385,47 @@ footer .small { font-size: 0.9rem; }
             <li><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>Lugar</b>Sede Regnum Christi<br>17 calle 9-38, zona 10, Ciudad de Guatemala<br><a href="https://www.google.com/maps/search/?api=1&query=17+calle+9-38+zona+10+Ciudad+de+Guatemala" target="_blank" rel="noopener">Ver en el mapa</a></div></li>
           </ul>
         </article>
+
+        <article class="cat ret">
+          <span class="tag">Retiros</span>
+          <h3>Retiro mensual</h3>
+          <p class="when">Un martes al mes, por lo general el de la tercera semana</p>
+          <p class="desc">Un espacio de oración y reflexión para detenernos, escuchar a Dios y renovar nuestra fe.</p>
+          <p class="by">De Sección Femenina de Adultos RC</p>
+          <p class="desc" style="margin-top:6px">Guiado por el Padre Juan Francisco González.</p>
+          <p class="desc" style="margin-top:6px">Las fechas de cada mes están en el calendario 2027 (tentativo; si algo cambia, se notificará).</p>
+          <hr class="rule">
+          <ul class="info">
+            <li><svg aria-hidden="true"><use href="#i-clock"/></svg><div><b>Horario</b>6:00 p. m.</div></li>
+            <li><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>Lugar</b>Instituto Betania<br>3.ª calle 23-41, zona 15, Colonia Vista Hermosa I, Ciudad de Guatemala<br><a href="https://www.google.com/maps/search/?api=1&query=Instituto+Betania+3+calle+23-41+zona+15+Vista+Hermosa+I+Ciudad+de+Guatemala" target="_blank" rel="noopener">Ver en el mapa</a></div></li>
+          </ul>
+        </article>
+      </div>
+
+
+      <div class="calwrap" id="calendario">
+        <h3>Calendario 2027 <span class="tent">(tentativo)</span></h3>
+        <p class="calnote"><strong>Calendario tentativo.</strong> Si alguna fecha cambia, se notificará. Encuentros y formación, los miércoles. Retiro, los martes. Todas las actividades comienzan a las 6:00 p. m.</p>
+        <div class="tablewrap">
+        <table class="cal">
+          <thead><tr><th></th><th class="h-enc">Encuentro con Cristo<span>miércoles</span></th><th class="h-for">Formación católica<span>miércoles</span></th><th class="h-ret">Retiro mensual<span>martes</span></th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Enero</th><td class="c-enc">6 y 27</td><td class="c-for">13</td><td class="c-ret">19</td></tr>
+<tr><th scope="row">Febrero</th><td class="c-enc">3 y 24</td><td class="c-for">10</td><td class="c-ret">16</td></tr>
+<tr><th scope="row">Marzo</th><td class="c-enc">3<sup>*</sup></td><td class="c-for">10</td><td class="c-ret">16</td></tr>
+<tr><th scope="row">Abril</th><td class="c-enc">7 y 28</td><td class="c-for">14</td><td class="c-ret">20</td></tr>
+<tr><th scope="row">Mayo</th><td class="c-enc">5 y 26</td><td class="c-for">12</td><td class="c-ret">18</td></tr>
+<tr><th scope="row">Junio</th><td class="c-enc">2 y 23</td><td class="c-for">9</td><td class="c-ret">15</td></tr>
+<tr><th scope="row">Julio</th><td class="c-enc">7 y 28</td><td class="c-for">14</td><td class="c-ret"><span class="none">sin retiro</span></td></tr>
+<tr><th scope="row">Agosto</th><td class="c-enc">4 y 25</td><td class="c-for">11</td><td class="c-ret">17</td></tr>
+<tr><th scope="row">Septiembre</th><td class="c-enc">1 y 22</td><td class="c-for">8</td><td class="c-ret">28</td></tr>
+<tr><th scope="row">Octubre</th><td class="c-enc">6 y 27</td><td class="c-for">13</td><td class="c-ret">19</td></tr>
+<tr><th scope="row">Noviembre</th><td class="c-enc">3 y 24</td><td class="c-for">10</td><td class="c-ret">16</td></tr>
+<tr><th scope="row">Diciembre</th><td class="c-enc">1 y 22</td><td class="c-for">15</td><td class="c-ret">7</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="calnote small"><sup>*</sup> En marzo, el miércoles 24 no hay encuentro por la Semana Santa (del 21 al 28 de marzo no hay actividades). Los feriados no tienen actividad. Este calendario es tentativo: si alguna fecha cambia, se notificará.</p>
       </div>
 
       <div class="joinnote">
@@ -408,7 +500,7 @@ footer .small { font-size: 0.9rem; }
         </details>
         <details>
           <summary>¿Cuándo y dónde son los encuentros?</summary>
-          <p>Todas las actividades comienzan a las 6:00 p. m. Cada mes: el primer y el cuarto miércoles, Encuentro con Cristo; el segundo martes, Retiro mensual; y el tercer miércoles, Formación católica. Los encuentros y la formación son en la sede de Regnum Christi (17 calle 9-38, zona 10). El retiro es en el Instituto Betania (3.ª calle 23-41, zona 15, Colonia Vista Hermosa I).</p>
+          <p>Todas las actividades comienzan a las 6:00 p. m. Cada mes: el primer y el cuarto miércoles, Encuentro con Cristo; el segundo miércoles, Formación católica; y un martes al mes, por lo general el de la tercera semana, el Retiro mensual. Los encuentros y la formación son en la sede de Regnum Christi (17 calle 9-38, zona 10). El retiro, guiado por el Padre Juan Francisco González, es en el Instituto Betania (3.ª calle 23-41, zona 15, Colonia Vista Hermosa I). Las fechas de todo el año están en el calendario 2027, que es tentativo: si alguna fecha cambia, se notificará.</p>
         </details>
         <details>
           <summary>¿Tiene costo?</summary>
